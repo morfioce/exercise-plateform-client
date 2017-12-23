@@ -49,11 +49,13 @@ class Login extends React.Component {
         'student'
       api.logIn(this.state.email, this.state.password, role)
         .then((user) => {
+          console.log(user)
           console.log('navigating to home page')
           this.props.history.push(`/${role}`)
         })
-        .catch((error) => {
+        .catch((err) => {
           // update the sate accordingly
+          console.log(err)
         })
     }
   }

@@ -1,21 +1,21 @@
 import Cookies from 'cookies-js'
 
-const isAuthenticated = (state) => {
-  return Boolean(Cookies.get('logged'))
+const isAuthenticated = () => {
+  return Boolean(Cookies.get('connect.sid'))
 }
 
-const authenticate = (callback) => {
-  Cookies.set('logged', true)
+const setCookie = (key, value) => {
+  Cookies.set(key, value)
   return Promise.resolve()
 }
 
 const signOut = (callback) => {
-  Cookies.set('logged', false)
+  Cookies.set('connect.sid', 0)
   return Promise.resolve()
 }
 
 export default {
   isAuthenticated,
-  authenticate,
+  setCookie,
   signOut
 }
