@@ -1,15 +1,13 @@
 import Auth from './auth.js'
 import axios from 'axios'
 
+const BASE_URL = 'http://localhost:5000'
+
 const logIn = (username, password, role) => {
-  // if (username === 'test' && password === 'test') {
-  //   return Auth.authenticate()
-  //     .then(() => {
-  //       return Promise.resolve({username, password, role})
-  //     })
-  // }
   const userCredentials = {username, password, role}
-  return axios('http://localhost:5000/login',{
+  const LOGIN_URL = BASE_URL + '/login'
+
+  return axios(LOGIN_URL, {
       method: 'post',
       withCredentials: true,
       data: userCredentials
@@ -17,7 +15,6 @@ const logIn = (username, password, role) => {
     .then((user) => {
       return user
     })
-  return Promise.reject('Invalid redentials')
 }
 
 const logOut = () => {
