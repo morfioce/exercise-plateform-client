@@ -19,9 +19,12 @@ const logIn = (username, password, role) => {
 }
 
 const logOut = () => {
-  Auth.signOut(() => {
-    return Promise.resolve(true)
-  })
+  const LOGOUT_URL = BASE_URL + '/logout'
+  return axios.get(LOGOUT_URL)
+    .then((response) => {
+      Auth.logOut()
+      return response.data
+    })
 }
 
 export default {

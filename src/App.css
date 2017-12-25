@@ -24,3 +24,16 @@
 .App-main {
   margin-top: 35px;
 }
+
+.Header a {
+  cursor: pointer;
+}
+
+/* Utilities */
+.mr-0 {
+  margin-right: 0 !important
+}
+
+.mr-1 {
+  margin-right: 15px !important
+}

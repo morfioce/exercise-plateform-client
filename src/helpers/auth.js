@@ -1,11 +1,15 @@
 import Cookies from 'cookies-js'
 
 const isAuthenticated = () => {
-  const user = JSON.parse(localStorage.getItem('user'))
-  return !!user
+  try {
+    const user = JSON.parse(localStorage.getItem('user'))
+    return !!user
+  } catch (e) {
+    return false
+  }
 }
 
-const signOut = (callback) => {
+const logOut = (callback) => {
   localStorage.setItem('user', '')
 }
 
@@ -14,8 +18,13 @@ const saveUser = (user) => {
   localStorage.setItem('user', JSON.stringify(user))
 }
 
+const getLoggedInUser = () => {
+  return JSON.parse(localStorage.getItem('user'))
+}
+
 export default {
   isAuthenticated,
   saveUser,
-  signOut
+  getLoggedInUser,
+  logOut
 }

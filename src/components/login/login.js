@@ -44,9 +44,8 @@ class Login extends React.Component {
       this.updateState('email', '')
       this.updateState('password', '')
 
-      const role = (this.props.location.pathname.indexOf('teacher') > -1) ?
-        'teacher' :
-        'student'
+      const role = this.props.match.params.role
+      console.log(role)
       api.logIn(this.state.email, this.state.password, role)
         .then((user) => {
           console.log(user)
