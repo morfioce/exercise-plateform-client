@@ -1,21 +1,21 @@
 import Cookies from 'cookies-js'
 
 const isAuthenticated = () => {
-  return Boolean(Cookies.get('connect.sid'))
-}
-
-const setCookie = (key, value) => {
-  Cookies.set(key, value)
-  return Promise.resolve()
+  const user = JSON.parse(localStorage.getItem('user'))
+  return !!user
 }
 
 const signOut = (callback) => {
-  Cookies.set('connect.sid', 0)
-  return Promise.resolve()
+  localStorage.setItem('user', '')
+}
+
+const saveUser = (user) => {
+  console.log('Saving user to local storage :', user)
+  localStorage.setItem('user', JSON.stringify(user))
 }
 
 export default {
   isAuthenticated,
-  setCookie,
+  saveUser,
   signOut
 }

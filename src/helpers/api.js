@@ -12,8 +12,9 @@ const logIn = (username, password, role) => {
       withCredentials: true,
       data: userCredentials
     })
-    .then((user) => {
-      return user
+    .then((response) => {
+      Auth.saveUser(response.data)
+      return response.data
     })
 }
 
