@@ -4,8 +4,7 @@ import './App.css';
 import {
   Switch,
   BrowserRouter as Router,
-  Route,
-  Link
+  Route
 } from 'react-router-dom'
 
 

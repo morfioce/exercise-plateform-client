@@ -1,30 +1,14 @@
 import React from 'react'
-import Header from '../common/header.js'
-import profilePicture from '../../profile.png'
 
-import api from '../../helpers/api.js'
-import util from '../../helpers/util.js'
 
-class StudentHome extends React.Component {
+class TeacherHome extends React.Component {
   constructor(props) {
     super(props)
   }
 
-  logOut() {
-    api.logOut()
-      .then(() => {
-        window.location.reload()
-      })
-  }
-
   render() {
-    const user = {
-      ...util.getLoggerUser(),
-      profilePicture
-    };
-
-    return <Header user={user} logOut={this.logOut}/>
+    return <h1>Welcome to Teacher Home Page</h1>
   }
 }
 
-export default StudentHome
+export default TeacherHome
